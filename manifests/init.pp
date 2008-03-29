@@ -1,36 +1,36 @@
-# modules/skeleton/manifests/init.pp - manage skeleton stuff
+# modules/mongrel/manifests/init.pp - manage mongrel stuff
 # Copyright (C) 2007 admin@immerda.ch
 # GPLv3
 
-# modules_dir { "skeleton": }
+# modules_dir { "mongrel": }
 
-class skeleton {
+class mongrel {
     case $operatingsystem {
-        gentoo: { include skeleton::gentoo }
-        default: { include skeleton::base }
+        gentoo: { include mongrel::gentoo }
+        default: { include mongrel::base }
     }
 }
 
-class skeleton::base {
-    package{'skeleton':
+class mongrel::base {
+    package{'mongrel':
         ensure => installed,
     }
 
-    service{skeleton:
+    service{mongrel:
         ensure => running,
         enable => true,
         #hasstatus => true, #fixme!
-        require => Package[skeleton],
+        require => Package[mongrel],
     }
 
 }
 
-class skeleton::gentoo inherits skeleton::base {
-    Package[skeleton]{
-        category => 'some-category',
+class mongrel::gentoo inherits mongrel::base {
+    Package[mongrel]{
+        category => 'www-servers',
     }
 
     #conf.d file if needed
     # needs module gentoo
-    #gentoo::etcconfd { skeleton: require => "Package[skeleton]", notify => "Service[skeleton]"}
+    #gentoo::etcconfd { mongrel: require => "Package[mongrel]", notify => "Service[mongrel]"}
 }
