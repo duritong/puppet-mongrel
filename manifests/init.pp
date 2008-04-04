@@ -17,9 +17,9 @@ class mongrel::base {
     }
 
     service{mongrel:
-        ensure => running,
-        enable => true,
-        #hasstatus => true, #fixme!
+        ensure => false,
+        enable => false,
+        hasstatus => true, 
         require => Package[mongrel],
     }
 
