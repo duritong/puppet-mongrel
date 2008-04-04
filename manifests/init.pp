@@ -15,14 +15,6 @@ class mongrel::base {
     package{'mongrel':
         ensure => installed,
     }
-
-    service{mongrel:
-        ensure => false,
-        enable => false,
-        hasstatus => true, 
-        require => Package[mongrel],
-    }
-
 }
 
 class mongrel::gentoo inherits mongrel::base {
