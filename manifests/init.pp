@@ -21,8 +21,4 @@ class mongrel::gentoo inherits mongrel::base {
     Package[mongrel]{
         category => 'www-servers',
     }
-
-    #conf.d file if needed
-    # needs module gentoo
-    #gentoo::etcconfd { mongrel: require => "Package[mongrel]", notify => "Service[mongrel]"}
 }
