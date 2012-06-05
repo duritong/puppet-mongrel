@@ -3,9 +3,9 @@
 # GPLv3
 
 class mongrel {
-    case $operatingsystem {
-        gentoo: { include mongrel::gentoo }
-        centos: { include mongrel::centos }
-        default: { include mongrel::base }
-    }
+  case $::operatingsystem {
+    gentoo: { include mongrel::gentoo }
+    centos: { include mongrel::centos }
+    default: { include mongrel::base }
+  }
 }

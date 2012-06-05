@@ -1,5 +1,5 @@
 class mongrel::base {
-    package{'mongrel':
-        ensure => installed,
-    }
+  package{'mongrel':
+    ensure => installed,
+  }
 }
